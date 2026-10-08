@@ -1,6 +1,6 @@
 <!-- Banner -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:0d1117,50:1f2a44,100:c9a227&text=Nene%20Amanor%20Sackey&fontColor=f5f1e6&fontSize=44&fontAlignY=38&desc=Amanorsac%20Studio%20%E2%80%A2%20Music%20Software%20%26%20Audio%20Engineering&descAlignY=58&descSize=16&animation=fadeIn" alt="Nene Amanor Sackey — Amanorsac Studio" />
+  <img src="assets/banner.svg" width="100%" alt="Nene Amanor Sackey — Amanorsac Studio" />
 </p>
 
 <p align="center">
@@ -92,6 +92,5 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 ---
 
 <p align="center">
-  <i>“Excellence in the room, on the stage, and in the code.”</i><br/>
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=100&color=0:c9a227,50:1f2a44,100:0d1117&section=footer" alt="" />
+  <i>“Excellence in the room, on the stage, and in the code.”</i>
 </p>
