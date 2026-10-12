@@ -8,8 +8,8 @@
 </p>
 
 <p align="center">
-  <a href="https://amanorsac.com"><img src="https://img.shields.io/badge/amanorsac.com-0d1117?style=for-the-badge&logo=googlechrome&logoColor=c9a227" alt="Website" /></a>
-  <a href="https://amanorsac.com"><img src="https://img.shields.io/badge/Amanorsac_Studio-0d1117?style=for-the-badge&logo=github&logoColor=c9a227" alt="Amanorsac Studio" /></a>
+  <a href="https://www.amanorsac.studio"><img src="https://img.shields.io/badge/amanorsac.studio-0d1117?style=for-the-badge&logo=googlechrome&logoColor=c9a227" alt="Website" /></a>
+  <a href="https://www.amanorsac.studio"><img src="https://img.shields.io/badge/Amanorsac_Studio-0d1117?style=for-the-badge&logo=github&logoColor=c9a227" alt="Amanorsac Studio" /></a>
   <a href="https://custom-technology-software-development.amanorsac.workers.dev"><img src="https://img.shields.io/badge/Hire_me-CTSD-c9a227?style=for-the-badge&logo=cloudflare&logoColor=0d1117" alt="Custom Technology & Software Development" /></a></p>
 
 ---
@@ -18,7 +18,7 @@
 
 I'm a music director, broadcast post engineer and pianist with **11+ years** in gospel and worship production — and I write the software I wish existed on stage and in the studio.
 
-- 🎛️ Founder of **[Amanorsac Studio](https://amanorsac.com)** — audio plugins, practice tools and live-production apps
+- 🎛️ Founder of **[Amanorsac Studio](https://www.amanorsac.studio)** — audio plugins, practice tools and live-production apps
 - 🛠️ Running **CTSD** (Custom Technology & Software Development) — custom apps for churches and businesses
 - 🎓 Graduate study in music & worship at Liberty University
 - 🌍 Roots in Ghana — gospel, highlife and Afro praise shape everything I build
@@ -27,7 +27,7 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 
 ### 🚀 Projects
 
-<p align="center"><i>Source code is private. Every project below links to <a href="https://amanorsac.com">amanorsac.com</a>, where you can see demos, screenshots and downloads.</i></p>
+<p align="center"><i>Source code is private. Every project below links to <a href="https://www.amanorsac.studio">amanorsac.studio</a>, where you can see demos, screenshots and downloads.</i></p>
 
 
 #### 🎛️ Audio plugins (JUCE · VST3 / AU)
@@ -35,36 +35,36 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>✨ <a href="https://amanorsac.com">Aether</a></h4>
+      <h4>✨ <a href="https://www.amanorsac.studio">Aether</a></h4>
       Air-exciter plugin for vocals and mixes — open, musical top end without harshness.<br/>
       <sub>C++ · JUCE</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🥁 <a href="https://amanorsac.com">DrumGate</a></h4>
+      <h4>🥁 <a href="https://www.amanorsac.studio">DrumGate</a></h4>
       Transparent gate for live and studio drums — tight, fast, no chatter.<br/>
       <sub>C++ · JUCE</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>🔊 <a href="https://amanorsac.com">Lowend</a></h4>
+      <h4>🔊 <a href="https://www.amanorsac.studio">Lowend</a></h4>
       Low-frequency shaping and control for kick, bass and the sub region.<br/>
       <sub>C++ · JUCE</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>📐 <a href="https://amanorsac.com">Align Pro</a></h4>
+      <h4>📐 <a href="https://www.amanorsac.studio">Align Pro</a></h4>
       Phase and time alignment for multi-mic sources.<br/>
       <sub>C++ · JUCE</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>🌌 <a href="https://amanorsac.com">Nebula Tide</a></h4>
+      <h4>🌌 <a href="https://www.amanorsac.studio">Nebula Tide</a></h4>
       Ambient reverb and modulation for pads, keys and worship textures.<br/>
       <sub>C++ · CMake</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🎚️ <a href="https://amanorsac.com">Audio Plugins Suite</a></h4>
+      <h4>🎚️ <a href="https://www.amanorsac.studio">Audio Plugins Suite</a></h4>
       Growing collection of Amanorsac Studio processors.<br/>
       <sub>C++ · JUCE</sub>
     </td>
@@ -77,36 +77,36 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🎹 <a href="https://amanorsac.com">ChordLight 88</a></h4>
+      <h4>🎹 <a href="https://www.amanorsac.studio">ChordLight 88</a></h4>
       Real-time 88-key MIDI display that names the chords you play — for teaching, streaming and rehearsal.<br/>
       <sub>JavaScript · Web MIDI</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>⏱️ <a href="https://amanorsac.com">Perfect Metronome</a></h4>
+      <h4>⏱️ <a href="https://www.amanorsac.studio">Perfect Metronome</a></h4>
       A simple but powerful metronome for iPhone, iPad, Windows and Mac.<br/>
       <sub>C++ · JUCE</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>🎓 <a href="https://amanorsac.com">MusicTutor</a></h4>
+      <h4>🎓 <a href="https://www.amanorsac.studio">MusicTutor</a></h4>
       Lesson studio for music teachers — scheduling, materials and student progress.<br/>
       <sub>TypeScript</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🎼 <a href="https://amanorsac.com">Piano Tutor</a></h4>
+      <h4>🎼 <a href="https://www.amanorsac.studio">Piano Tutor</a></h4>
       Guided piano practice for beginners and worship keys players.<br/>
       <sub>App</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>🌊 <a href="https://amanorsac.com">Pulse Room</a></h4>
+      <h4>🌊 <a href="https://www.amanorsac.studio">Pulse Room</a></h4>
       Interactive delay / reverb and plugin-chain trainer that teaches time-based effects by ear.<br/>
       <sub>JavaScript · Web Audio</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🎧 <a href="https://amanorsac.com">HarmonieMD</a></h4>
+      <h4>🎧 <a href="https://www.amanorsac.studio">HarmonieMD</a></h4>
       Music-director companion for charts, keys and rehearsal notes.<br/>
       <sub>JavaScript</sub>
     </td>
@@ -119,12 +119,12 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🎚️ <a href="https://amanorsac.com">PerformLive</a></h4>
+      <h4>🎚️ <a href="https://www.amanorsac.studio">PerformLive</a></h4>
       Live-performance host for plugins, backing tracks and scene changes.<br/>
       <sub>C++ · JUCE</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>⏭️ <a href="https://amanorsac.com">SecondOut</a></h4>
+      <h4>⏭️ <a href="https://www.amanorsac.studio">SecondOut</a></h4>
       Second-output routing and monitoring utility for live rigs.<br/>
       <sub>C++</sub>
     </td>
@@ -137,19 +137,19 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🧩 <a href="https://amanorsac.com">Stem Separator</a></h4>
+      <h4>🧩 <a href="https://www.amanorsac.studio">Stem Separator</a></h4>
       Split full mixes into stems for practice, remixing and live playback.<br/>
       <sub>JavaScript · ML</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🗂️ <a href="https://amanorsac.com">Stem Sorter</a></h4>
+      <h4>🗂️ <a href="https://www.amanorsac.studio">Stem Sorter</a></h4>
       Automatically organises and labels stems and bounces.<br/>
       <sub>Python</sub>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>📄 <a href="https://amanorsac.com">PDF Tools</a></h4>
+      <h4>📄 <a href="https://www.amanorsac.studio">PDF Tools</a></h4>
       Chart and document utilities for the music office.<br/>
       <sub>JavaScript</sub>
     </td>
@@ -163,12 +163,12 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🛠️ <a href="https://amanorsac.com">CTSD — Custom Technology & Software Development</a></h4>
+      <h4>🛠️ <a href="https://www.amanorsac.studio">CTSD — Custom Technology & Software Development</a></h4>
       Custom apps and websites for churches and businesses.<br/>
       <sub>JavaScript · Cloudflare</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🎓 <a href="https://amanorsac.com">Modern Music Hub</a></h4>
+      <h4>🎓 <a href="https://www.amanorsac.studio">Modern Music Hub</a></h4>
       Website for a piano and music-production academy in Charlottesville.<br/>
       <sub>JavaScript</sub>
     </td>
@@ -176,7 +176,7 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 </table>
 
 
-<p align="center"><a href="https://amanorsac.com"><b>See everything at amanorsac.com →</b></a></p>
+<p align="center"><a href="https://www.amanorsac.studio"><b>See everything at amanorsac.studio →</b></a></p>
 
 ---
 
