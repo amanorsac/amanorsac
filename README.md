@@ -124,21 +124,9 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
       <sub>C++ · JUCE</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>🎧 <a href="https://amanorsac.com">MixMyIEM</a></h4>
-      Personal in-ear monitor mixing for worship teams and bands.<br/>
-      <sub>JavaScript</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
       <h4>⏭️ <a href="https://amanorsac.com">SecondOut</a></h4>
       Second-output routing and monitoring utility for live rigs.<br/>
       <sub>C++</sub>
-    </td>
-    <td width="50%" valign="top">
-      <h4>🎶 <a href="https://amanorsac.com">Asaph Choir</a></h4>
-      Tools and resources for choir directors and vocal teams.<br/>
-      <sub>App</sub>
     </td>
   </tr>
 </table>
@@ -161,15 +149,11 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h4>📥 <a href="https://amanorsac.com">NovaGrab</a></h4>
-      Fast media grabber for rehearsal references and post work.<br/>
-      <sub>Rust</sub>
-    </td>
-    <td width="50%" valign="top">
       <h4>📄 <a href="https://amanorsac.com">PDF Tools</a></h4>
       Chart and document utilities for the music office.<br/>
       <sub>JavaScript</sub>
     </td>
+    <td width="50%"></td>
   </tr>
 </table>
 
@@ -187,18 +171,6 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
       <h4>🎓 <a href="https://amanorsac.com">Modern Music Hub</a></h4>
       Website for a piano and music-production academy in Charlottesville.<br/>
       <sub>JavaScript</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h4>⛪ <a href="https://amanorsac.com">FCCI Preview</a></h4>
-      Church website redesign preview by CTSD.<br/>
-      <sub>HTML · CSS</sub>
-    </td>
-    <td width="50%" valign="top">
-      <h4>🌍 <a href="https://amanorsac.com">GRITS</a></h4>
-      TypeScript platform project.<br/>
-      <sub>TypeScript</sub>
     </td>
   </tr>
 </table>
