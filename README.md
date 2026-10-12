@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://www.amanorsac.studio"><img src="https://img.shields.io/badge/amanorsac.studio-0d1117?style=for-the-badge&logo=googlechrome&logoColor=c9a227" alt="Website" /></a>
-  <a href="https://github.com/Amanorsac-Studio"><img src="https://img.shields.io/badge/Amanorsac_Studio-0d1117?style=for-the-badge&logo=github&logoColor=c9a227" alt="Amanorsac Studio org" /></a>
+  <a href="https://www.amanorsac.studio"><img src="https://img.shields.io/badge/Amanorsac_Studio-0d1117?style=for-the-badge&logo=github&logoColor=c9a227" alt="Amanorsac Studio" /></a>
   <a href="https://custom-technology-software-development.amanorsac.workers.dev"><img src="https://img.shields.io/badge/Hire_me-CTSD-c9a227?style=for-the-badge&logo=cloudflare&logoColor=0d1117" alt="Custom Technology & Software Development" /></a></p>
 
 ---
@@ -25,42 +25,158 @@ I'm a music director, broadcast post engineer and pianist with **11+ years** in 
 
 ---
 
-### 🚀 Featured work
+### 🚀 Projects
+
+<p align="center"><i>Source code is private. Every project below links to <a href="https://www.amanorsac.studio">amanorsac.studio</a>, where you can see demos, screenshots and downloads.</i></p>
+
+
+#### 🎛️ Audio plugins (JUCE · VST3 / AU)
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h4>🎹 <a href="https://github.com/Amanorsac-Studio/ChordLight-88">Chordlight 88</a></h4>
-      Real-time 88-key MIDI display that names the chords you play — built for teaching, streaming and rehearsal.
+      <h4>✨ <a href="https://www.amanorsac.studio">Aether</a></h4>
+      Air-exciter plugin for vocals and mixes — open, musical top end without harshness.<br/>
+      <sub>C++ · JUCE</sub>
     </td>
     <td width="50%" valign="top">
-      <h4>✨ <a href="https://github.com/Amanorsac-Studio/aether">Aether</a></h4>
-      JUCE air-exciter plugin for vocals and mixes — open, musical top end without harshness.
+      <h4>🥁 <a href="https://www.amanorsac.studio">DrumGate</a></h4>
+      Transparent gate for live and studio drums — tight, fast, no chatter.<br/>
+      <sub>C++ · JUCE</sub>
     </td>
   </tr>
   <tr>
-    <td valign="top">
-      <h4>🌊 <a href="https://github.com/Amanorsac-Studio/PulseRoom">Pulse Room</a></h4>
-      Interactive delay / reverb and plugin-chain trainer that teaches time-based effects by ear.
+    <td width="50%" valign="top">
+      <h4>🔊 <a href="https://www.amanorsac.studio">Lowend</a></h4>
+      Low-frequency shaping and control for kick, bass and the sub region.<br/>
+      <sub>C++ · JUCE</sub>
     </td>
-    <td valign="top">
-      <h4>⏱️ <a href="https://github.com/Amanorsac-Studio/PerfectMetronome">Perfect Metronome</a></h4>
-      A rock-solid practice metronome for players and worship teams.
+    <td width="50%" valign="top">
+      <h4>📐 <a href="https://www.amanorsac.studio">Align Pro</a></h4>
+      Phase and time alignment for multi-mic sources.<br/>
+      <sub>C++ · JUCE</sub>
     </td>
   </tr>
   <tr>
-    <td valign="top">
-      <h4>🎓 <a href="https://github.com/Amanorsac-Studio/ModernMusicHub">Modern Music Hub</a></h4>
-      Website for a piano and music-production academy in Charlottesville.
+    <td width="50%" valign="top">
+      <h4>🌌 <a href="https://www.amanorsac.studio">Nebula Tide</a></h4>
+      Ambient reverb and modulation for pads, keys and worship textures.<br/>
+      <sub>C++ · CMake</sub>
     </td>
-    <td valign="top">
-      <h4>🧩 <a href="https://github.com/amanorsac/stemseperator">Stem Separator</a></h4>
-      Split full mixes into stems for practice, remixing and live playback.
+    <td width="50%" valign="top">
+      <h4>🎚️ <a href="https://www.amanorsac.studio">Audio Plugins Suite</a></h4>
+      Growing collection of Amanorsac Studio processors.<br/>
+      <sub>C++ · JUCE</sub>
     </td>
   </tr>
 </table>
 
-<p align="center"><a href="https://github.com/Amanorsac-Studio?tab=repositories"><b>See all Amanorsac Studio projects →</b></a></p>
+
+#### 🎹 Practice & teaching tools
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎹 <a href="https://www.amanorsac.studio">ChordLight 88</a></h4>
+      Real-time 88-key MIDI display that names the chords you play — for teaching, streaming and rehearsal.<br/>
+      <sub>JavaScript · Web MIDI</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>⏱️ <a href="https://www.amanorsac.studio">Perfect Metronome</a></h4>
+      A simple but powerful metronome for iPhone, iPad, Windows and Mac.<br/>
+      <sub>C++ · JUCE</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎓 <a href="https://www.amanorsac.studio">MusicTutor</a></h4>
+      Lesson studio for music teachers — scheduling, materials and student progress.<br/>
+      <sub>TypeScript</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🎼 <a href="https://www.amanorsac.studio">Piano Tutor</a></h4>
+      Guided piano practice for beginners and worship keys players.<br/>
+      <sub>App</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🌊 <a href="https://www.amanorsac.studio">Pulse Room</a></h4>
+      Interactive delay / reverb and plugin-chain trainer that teaches time-based effects by ear.<br/>
+      <sub>JavaScript · Web Audio</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🎧 <a href="https://www.amanorsac.studio">HarmonieMD</a></h4>
+      Music-director companion for charts, keys and rehearsal notes.<br/>
+      <sub>JavaScript</sub>
+    </td>
+  </tr>
+</table>
+
+
+#### 🎤 Live production & stage
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🎚️ <a href="https://www.amanorsac.studio">PerformLive</a></h4>
+      Live-performance host for plugins, backing tracks and scene changes.<br/>
+      <sub>C++ · JUCE</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>⏭️ <a href="https://www.amanorsac.studio">SecondOut</a></h4>
+      Second-output routing and monitoring utility for live rigs.<br/>
+      <sub>C++</sub>
+    </td>
+  </tr>
+</table>
+
+
+#### 🧩 Studio utilities
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🧩 <a href="https://www.amanorsac.studio">Stem Separator</a></h4>
+      Split full mixes into stems for practice, remixing and live playback.<br/>
+      <sub>JavaScript · ML</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🗂️ <a href="https://www.amanorsac.studio">Stem Sorter</a></h4>
+      Automatically organises and labels stems and bounces.<br/>
+      <sub>Python</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>📄 <a href="https://www.amanorsac.studio">PDF Tools</a></h4>
+      Chart and document utilities for the music office.<br/>
+      <sub>JavaScript</sub>
+    </td>
+    <td width="50%"></td>
+  </tr>
+</table>
+
+
+#### 🌐 Web platforms & client work
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h4>🛠️ <a href="https://www.amanorsac.studio">CTSD — Custom Technology & Software Development</a></h4>
+      Custom apps and websites for churches and businesses.<br/>
+      <sub>JavaScript · Cloudflare</sub>
+    </td>
+    <td width="50%" valign="top">
+      <h4>🎓 <a href="https://www.amanorsac.studio">Modern Music Hub</a></h4>
+      Website for a piano and music-production academy in Charlottesville.<br/>
+      <sub>JavaScript</sub>
+    </td>
+  </tr>
+</table>
+
+
+<p align="center"><a href="https://www.amanorsac.studio"><b>See everything at amanorsac.studio →</b></a></p>
 
 ---
 
