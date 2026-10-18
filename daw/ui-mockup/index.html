@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amanorsac DAW — UI Mockup v0.1</title>
+<style>
+  :root {
+    --bg-0: #07090d;
+    --bg-1: #0d1117;
+    --bg-2: #141a22;
+    --bg-3: #1b232e;
+    --line: #242d3a;
+    --text: #d7dde6;
+    --text-dim: #8b96a5;
+    --accent: #c9a227;
+    --accent-dim: #7d6418;
+    --rec: #e5484d;
+    --play: #3fb950;
+    --audio: #3d8bd6;
+    --midi: #8e6cd9;
+    --bus: #d9822b;
+    --meter-lo: #3fb950;
+    --meter-hi: #e5b54a;
+    --meter-clip: #e5484d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg-0); color: var(--text);
+    font: 12px/1.3 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+
+  .app { display: grid; height: 100vh; min-height: 640px;
+    grid-template-rows: 44px 1fr 236px 22px;
+    grid-template-columns: 220px 1fr 250px; }
+
+  .panel { background: var(--bg-1); border: 1px solid var(--line); min-width: 0; min-height: 0; overflow: hidden; }
+  .label { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dim); }
+
+  /* ---------- top transport ---------- */
+  .topbar { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; padding: 0 12px;
+    background: var(--bg-2); border-bottom: 1px solid var(--line); }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+  .brand span { color: var(--text-dim); font-weight: 500; }
+  .sep { width: 1px; height: 26px; background: var(--line); }
+  .btn { width: 30px; height: 28px; display: grid; place-items: center; border-radius: 4px;
+    background: var(--bg-3); border: 1px solid var(--line); color: var(--text); cursor: pointer; }
+  .btn:hover { border-color: var(--accent-dim); }
+  .btn.on { background: var(--accent-dim); border-color: var(--accent); color: #fff; }
+  .btn.rec { color: var(--rec); }
+  .time { background: #05070a; border: 1px solid var(--line); border-radius: 4px; padding: 4px 10px; min-width: 150px; }
+  .time b { color: var(--accent); font-weight: 600; font-size: 15px; }
+  .field { background: #05070a; border: 1px solid var(--line); border-radius: 4px; padding: 4px 8px; color: var(--text); }
+  .spacer { flex: 1; }
+  .cpu { display: flex; gap: 8px; align-items: center; color: var(--text-dim); }
+  .cpu .bar { width: 60px; height: 6px; background: var(--bg-3); border-radius: 3px; overflow: hidden; }
+  .cpu .bar i { display: block; height: 100%; width: 34%; background: var(--play); }
+
+  /* ---------- browser ---------- */
+  .browser { grid-row: 2 / 3; grid-column: 1; display: flex; flex-direction: column; }
+  .panel-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px;
+    border-bottom: 1px solid var(--line); background: var(--bg-2); }
+  .search { margin: 8px; padding: 6px 8px; background: #05070a; border: 1px solid var(--line); border-radius: 4px; color: var(--text-dim); }
+  .tree { padding: 0 6px 8px; overflow: auto; }
+  .tree .node { padding: 4px 6px; border-radius: 3px; color: var(--text); }
+  .tree .node.sub { padding-left: 22px; color: var(--text-dim); }
+  .tree .node.sel { background: var(--bg-3); color: var(--accent); }
+  .tree h4 { margin: 10px 6px 4px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dim); font-weight: 600; }
+
+  /* ---------- arrange ---------- */
+  .arrange { grid-row: 2 / 3; grid-column: 2; display: flex; flex-direction: column; }
+  .toolbar { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+  .seg button { background: var(--bg-3); color: var(--text-dim); border: 0; padding: 4px 10px; font: inherit; cursor: pointer; }
+  .seg button.on { background: var(--accent-dim); color: #fff; }
+  .timeline { flex: 1; display: grid; grid-template-columns: 220px 1fr; min-height: 0; }
+  .headers { border-right: 1px solid var(--line); background: var(--bg-2); overflow: hidden; }
+  .lanes { overflow: hidden; position: relative; background:
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(255,255,255,.04) 79px 80px), var(--bg-1); }
+  .ruler { height: 24px; border-bottom: 1px solid var(--line); background: var(--bg-2); position: relative; }
+  .ruler span { position: absolute; top: 4px; font-size: 10px; color: var(--text-dim); padding-left: 4px; border-left: 1px solid var(--line); height: 20px; }
+  .track-h { height: 64px; border-bottom: 1px solid var(--line); padding: 6px 8px; display: grid;
+    grid-template-columns: 4px 1fr; gap: 8px; }
+  .track-h .color { border-radius: 2px; }
+  .track-h .name { font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+  .track-h .row { display: flex; align-items: center; gap: 4px; margin-top: 6px; }
+  .mini { width: 20px; height: 18px; font-size: 10px; font-weight: 700; display: grid; place-items: center;
+    border-radius: 3px; background: var(--bg-3); border: 1px solid var(--line); color: var(--text-dim); }
+  .mini.m.on { background: #b07a14; color: #fff; border-color: #b07a14; }
+  .mini.s.on { background: var(--audio); color: #fff; border-color: var(--audio); }
+  .mini.r.on { background: var(--rec); color: #fff; border-color: var(--rec); }
+  .fader { flex: 1; height: 4px; background: var(--bg-3); border-radius: 2px; position: relative; margin-left: 6px; }
+  .fader i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 2px; }
+  .lane { height: 64px; border-bottom: 1px solid var(--line); position: relative; }
+  .clip { position: absolute; top: 5px; bottom: 5px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); }
+  .clip .cname { position: absolute; top: 2px; left: 6px; font-size: 10px; color: #fff; text-shadow: 0 1px 2px #000; z-index: 2; }
+  .clip svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .audio-clip { background: rgba(61,139,214,.22); border-color: rgba(61,139,214,.6); }
+  .audio-clip svg path { fill: var(--audio); opacity: .9; }
+  .midi-clip { background: rgba(142,108,217,.22); border-color: rgba(142,108,217,.6); }
+  .midi-clip .note { position: absolute; height: 4px; background: var(--midi); border-radius: 1px; }
+  .bus-clip { background: rgba(217,130,43,.15); border-color: rgba(217,130,43,.5); }
+  .playhead { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--accent); box-shadow: 0 0 6px var(--accent); z-index: 5; }
+  .loop { position: absolute; top: 0; bottom: 0; background: rgba(201,162,39,.07); border-left: 2px solid var(--accent-dim); border-right: 2px solid var(--accent-dim); }
+  .auto { height: 44px; position: relative; border-bottom: 1px solid var(--line); background: #0b0f15; }
+  .auto .label { position: absolute; left: 8px; top: 4px; }
+  .auto svg { position: absolute; inset: 14px 0 0 0; width: 100%; height: calc(100% - 14px); }
+
+  /* ---------- inspector ---------- */
+  .inspector { grid-row: 2 / 3; grid-column: 3; display: flex; flex-direction: column; overflow: hidden; }
+  .insp-body { padding: 10px; overflow: auto; display: grid; gap: 12px; }
+  .card { background: var(--bg-2); border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+  .slot { display: flex; justify-content: space-between; align-items: center; padding: 5px 8px; margin: 4px 0;
+    background: var(--bg-3); border: 1px solid var(--line); border-radius: 4px; }
+  .slot.empty { color: var(--text-dim); border-style: dashed; background: transparent; }
+  .slot .fx { font-size: 10px; color: var(--accent); }
+  .knobs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; }
+  .knob { width: 40px; height: 40px; margin: 0 auto; border-radius: 50%;
+    background: conic-gradient(from -135deg, var(--accent) 0 var(--v), var(--bg-3) var(--v) 270deg, transparent 270deg);
+    display: grid; place-items: center; }
+  .knob::after { content: ""; width: 28px; height: 28px; border-radius: 50%; background: var(--bg-2); }
+  .eq { height: 80px; background: #05070a; border-radius: 4px; position: relative; overflow: hidden; }
+  .eq svg { width: 100%; height: 100%; }
+
+  /* ---------- bottom: mixer / piano roll ---------- */
+  .bottom { grid-row: 3 / 4; grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+  .bottom .panel { display: flex; flex-direction: column; }
+  .tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); background: var(--bg-2); }
+  .tabs button { background: transparent; color: var(--text-dim); border: 0; padding: 7px 12px; font: inherit; cursor: pointer; border-bottom: 2px solid transparent; }
+  .tabs button.on { color: var(--accent); border-bottom-color: var(--accent); }
+  .mixer { display: flex; gap: 6px; padding: 8px; overflow-x: auto; flex: 1; }
+  .strip { width: 74px; flex: 0 0 74px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 5px; padding: 6px;
+    display: flex; flex-direction: column; gap: 6px; }
+  .strip.master { border-color: var(--accent-dim); width: 90px; flex-basis: 90px; }
+  .strip .nm { font-size: 11px; font-weight: 600; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .strip .ins { height: 36px; background: #05070a; border-radius: 3px; border: 1px solid var(--line); padding: 3px; font-size: 9px; color: var(--text-dim); }
+  .fadercol { display: flex; gap: 6px; height: 72px; }
+  .vfader { width: 8px; background: var(--bg-3); border-radius: 4px; position: relative; flex: 0 0 8px; }
+  .vfader i { position: absolute; left: -3px; width: 14px; height: 6px; border-radius: 2px; background: var(--accent); }
+  .meter { width: 8px; background: #05070a; border-radius: 3px; position: relative; overflow: hidden; flex: 0 0 8px; }
+  .meter i { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, var(--meter-lo) 0 60%, var(--meter-hi) 60% 88%, var(--meter-clip) 88%); }
+  .pan { height: 16px; background: var(--bg-3); border-radius: 8px; position: relative; }
+  .pan i { position: absolute; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .db { text-align: center; font-size: 10px; color: var(--text); }
+  .sends { font-size: 9px; color: var(--text-dim); display: flex; justify-content: space-between; }
+
+  .roll { flex: 1; position: relative; background:
+    repeating-linear-gradient(0deg, transparent 0 15px, rgba(255,255,255,.04) 15px 16px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(255,255,255,.05) 39px 40px), #090c11; overflow: hidden; }
+  .keys { position: absolute; left: 0; top: 0; bottom: 0; width: 44px; background: #e6e9ee; }
+  .keys i { display: block; height: 16px; border-bottom: 1px solid #aab1bd; }
+  .keys i.b { background: #1a1f28; width: 60%; margin-left: 0; }
+  .notes { position: absolute; left: 44px; right: 0; top: 0; bottom: 0; }
+  .n { position: absolute; height: 13px; border-radius: 3px; background: var(--midi); border: 1px solid #b59cf0; font-size: 9px; color: #fff; padding-left: 3px; line-height: 13px; }
+
+  /* ---------- status ---------- */
+  .status { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; padding: 0 10px; background: var(--bg-2);
+    border-top: 1px solid var(--line); color: var(--text-dim); font-size: 11px; }
+  .status b { color: var(--text); font-weight: 500; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--play); display: inline-block; margin-right: 6px; }
+
+  .note-box { position: fixed; right: 12px; bottom: 30px; max-width: 260px; font-size: 11px; color: var(--text-dim);
+    background: rgba(13,17,23,.92); border: 1px solid var(--accent-dim); border-radius: 6px; padding: 8px 10px; }
+  .note-box b { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- TOP TRANSPORT -->
+  <header class="topbar">
+    <div class="brand">AMANORSAC <span>DAW</span></div>
+    <div class="sep"></div>
+    <div class="btn" title="Rewind">&#9198;</div>
+    <div class="btn on" title="Play" style="color:var(--play)">&#9654;</div>
+    <div class="btn" title="Stop">&#9632;</div>
+    <div class="btn rec" title="Record">&#9679;</div>
+    <div class="btn on" title="Loop">&#8635;</div>
+    <div class="btn" title="Metronome">&#9833;</div>
+    <div class="sep"></div>
+    <div class="time mono"><div class="label">Position</div><b>00:00:12.340</b> <span style="color:var(--text-dim)">· 003.02.1</span></div>
+    <div class="field mono">120.00 BPM</div>
+    <div class="field mono">4 / 4</div>
+    <div class="field mono">C maj</div>
+    <div class="spacer"></div>
+    <div class="cpu"><span class="label">CPU</span><div class="bar"><i></i></div><span class="mono">34%</span></div>
+    <div class="cpu"><span class="label">Latency</span><span class="mono">5.8 ms</span></div>
+    <div class="field">Project: Sunday Set ▾</div>
+  </header>
+
+  <!-- BROWSER -->
+  <aside class="panel browser">
+    <div class="panel-head"><span class="label">Browser</span><span class="label">⚙</span></div>
+    <div class="search">Search sounds, plugins, presets…</div>
+    <div class="tree">
+      <h4>Library</h4>
+      <div class="node sel">Samples</div>
+      <div class="node sub">Drums</div>
+      <div class="node sub">Keys &amp; Pads</div>
+      <div class="node sub">Vocal Chops</div>
+      <div class="node sub">Worship Loops</div>
+      <div class="node">Presets</div>
+      <div class="node sub">Synth — Warm Pad</div>
+      <div class="node sub">Vocal — Air Bright</div>
+      <h4>Plugins</h4>
+      <div class="node">Built-in</div>
+      <div class="node sub">EQ · Compressor</div>
+      <div class="node sub">Reverb · Delay</div>
+      <div class="node">Third-party (VST3)</div>
+      <div class="node sub">Aether (Amanorsac)</div>
+      <h4>Project</h4>
+      <div class="node">Sunday Set.amsong</div>
+      <div class="node">Exports</div>
+    </div>
+  </aside>
+
+  <!-- ARRANGE -->
+  <main class="panel arrange">
+    <div class="toolbar">
+      <div class="seg">
+        <button class="on">Arrange</button><button>Mix</button><button>Edit</button>
+      </div>
+      <div class="seg">
+        <button class="on" title="Select">Select</button><button title="Draw">Draw</button><button title="Split">Split</button>
+      </div>
+      <div class="seg">
+        <button>Snap: Bar</button><button class="on">Grid</button>
+      </div>
+      <div class="spacer"></div>
+      <span class="label">Zoom</span>
+      <div class="seg"><button>−</button><button>+</button></div>
+      <span class="label mono">Bars 1–12</span>
+    </div>
+
+    <div class="timeline">
+      <!-- headers -->
+      <div class="headers">
+        <div class="ruler"></div>
+
+        <div class="track-h" style="--c:var(--audio)">
+          <div class="color" style="background:var(--audio)"></div>
+          <div>
+            <div class="name">Lead Vocal <span class="label">Audio</span></div>
+            <div class="row">
+              <div class="mini m">M</div><div class="mini s on">S</div><div class="mini r on">R</div>
+              <div class="fader"><i style="width:72%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-h">
+          <div class="color" style="background:var(--midi)"></div>
+          <div>
+            <div class="name">Warm Pad <span class="label">MIDI</span></div>
+            <div class="row">
+              <div class="mini m">M</div><div class="mini s">S</div><div class="mini r">R</div>
+              <div class="fader"><i style="width:58%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-h">
+          <div class="color" style="background:var(--audio)"></div>
+          <div>
+            <div class="name">Drum Loop <span class="label">Audio</span></div>
+            <div class="row">
+              <div class="mini m on">M</div><div class="mini s">S</div><div class="mini r">R</div>
+              <div class="fader"><i style="width:64%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-h">
+          <div class="color" style="background:var(--midi)"></div>
+          <div>
+            <div class="name">Keys <span class="label">MIDI</span></div>
+            <div class="row">
+              <div class="mini m">M</div><div class="mini s">S</div><div class="mini r">R</div>
+              <div class="fader"><i style="width:66%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-h">
+          <div class="color" style="background:var(--bus)"></div>
+          <div>
+            <div class="name">Reverb Bus <span class="label">Bus</span></div>
+            <div class="row">
+              <div class="mini m">M</div><div class="mini s">S</div><div class="mini r"></div>
+              <div class="fader"><i style="width:50%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auto"><span class="label">Automation · Lead Vocal Volume</span></div>
+      </div>
+
+      <!-- lanes -->
+      <div class="lanes" id="lanes">
+        <div class="ruler" id="ruler"></div>
+        <!-- built by script for waveforms and notes -->
+      </div>
+    </div>
+  </main>
+
+  <!-- INSPECTOR -->
+  <aside class="panel inspector">
+    <div class="panel-head"><span class="label">Inspector · Lead Vocal</span><span class="label">Audio</span></div>
+    <div class="insp-body">
+      <div class="card">
+        <div class="label" style="margin-bottom:6px">Input</div>
+        <div class="slot"><span>Input 1 · Mic (Scarlett 2i2)</span><span class="fx">MONO</span></div>
+        <div class="slot"><span>Monitor</span><span class="fx">AUTO</span></div>
+      </div>
+
+      <div class="card">
+        <div class="label" style="margin-bottom:6px">Insert Chain</div>
+        <div class="slot"><span>Noise Gate</span><span class="fx">ON</span></div>
+        <div class="slot"><span>Aether (VST3)</span><span class="fx">ON</span></div>
+        <div class="slot"><span>Compressor</span><span class="fx">ON</span></div>
+        <div class="slot empty"><span>+ Drop plugin here</span><span></span></div>
+      </div>
+
+      <div class="card">
+        <div class="label" style="margin-bottom:8px">EQ</div>
+        <div class="eq">
+          <svg viewBox="0 0 220 80" preserveAspectRatio="none">
+            <line x1="0" y1="40" x2="220" y2="40" stroke="#242d3a" />
+            <path d="M0 40 C 60 40, 80 46, 110 44 S 170 16, 220 18" fill="none" stroke="#c9a227" stroke-width="2" />
+            <circle cx="110" cy="44" r="4" fill="#c9a227" />
+            <circle cx="170" cy="22" r="4" fill="#c9a227" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label" style="margin-bottom:8px">Channel</div>
+        <div class="knobs">
+          <div><div class="knob" style="--v:200deg"></div><div class="label" style="margin-top:4px">Gain</div></div>
+          <div><div class="knob" style="--v:150deg"></div><div class="label" style="margin-top:4px">Pan</div></div>
+          <div><div class="knob" style="--v:120deg"></div><div class="label" style="margin-top:4px">Width</div></div>
+          <div><div class="knob" style="--v:180deg"></div><div class="label" style="margin-top:4px">Send</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- BOTTOM: mixer + piano roll -->
+  <section class="bottom">
+    <div class="panel">
+      <div class="tabs"><button class="on">Mixer</button><button>Automation</button><button>Clip Editor</button></div>
+      <div class="mixer">
+        <div class="strip">
+          <div class="nm">Lead Vocal</div>
+          <div class="ins">Gate<br/>Aether<br/>Comp</div>
+          <div class="pan"><i style="left:45%"></i></div>
+          <div class="fadercol"><div class="vfader"><i style="top:30%"></i></div><div class="meter"><i style="height:62%"></i></div></div>
+          <div class="db mono">−3.2 dB</div>
+          <div class="sends"><span>Rev</span><span>0.22</span></div>
+        </div>
+        <div class="strip">
+          <div class="nm">Warm Pad</div>
+          <div class="ins">Synth<br/>EQ</div>
+          <div class="pan"><i style="left:30%"></i></div>
+          <div class="fadercol"><div class="vfader"><i style="top:42%"></i></div><div class="meter"><i style="height:40%"></i></div></div>
+          <div class="db mono">−6.0 dB</div>
+          <div class="sends"><span>Rev</span><span>0.40</span></div>
+        </div>
+        <div class="strip">
+          <div class="nm">Drum Loop</div>
+          <div class="ins">Comp<br/>Sat</div>
+          <div class="pan"><i style="left:50%"></i></div>
+          <div class="fadercol"><div class="vfader"><i style="top:36%"></i></div><div class="meter"><i style="height:78%"></i></div></div>
+          <div class="db mono">−1.1 dB</div>
+          <div class="sends"><span>Rev</span><span>0.05</span></div>
+        </div>
+        <div class="strip">
+          <div class="nm">Keys</div>
+          <div class="ins">EP<br/>Chorus</div>
+          <div class="pan"><i style="left:70%"></i></div>
+          <div class="fadercol"><div class="vfader"><i style="top:40%"></i></div><div class="meter"><i style="height:30%"></i></div></div>
+          <div class="db mono">−8.4 dB</div>
+          <div class="sends"><span>Rev</span><span>0.30</span></div>
+        </div>
+        <div class="strip">
+          <div class="nm">Reverb Bus</div>
+          <div class="ins">Hall<br/>Pre-EQ</div>
+          <div class="pan"><i style="left:50%"></i></div>
+          <div class="fadercol"><div class="vfader"><i style="top:55%"></i></div><div class="meter"><i style="height:22%"></i></div></div>
+          <div class="db mono">−10.0 dB</div>
+          <div class="sends"><span>Out</span><span>Main</span></div>
+        </div>
+        <div class="strip master">
+          <div class="nm" style="color:var(--accent)">Master</div>
+          <div class="ins">Limiter<br/>Meter</div>
+          <div class="pan"><i style="left:50%"></i></div>
+          <div class="fadercol"><div class="vfader"><i style="top:34%"></i></div><div class="meter"><i style="height:70%"></i></div></div>
+          <div class="db mono">−0.5 dB</div>
+          <div class="sends"><span>LUFS</span><span>−14.1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="tabs"><button>Mixer</button><button>Automation</button><button class="on">Piano Roll · Warm Pad</button></div>
+      <div class="roll">
+        <div class="keys" id="keys"></div>
+        <div class="notes" id="notes"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <footer class="status">
+    <span><span class="dot"></span><b>Audio</b> 48 kHz · 128 buffer · ASIO</span>
+    <span>Selected: <b>Lead Vocal</b> (audio)</span>
+    <span>Undo: <b>Move clip</b></span>
+    <span class="spacer" style="flex:1"></span>
+    <span class="mono">v0.1 mockup · not wired to audio</span>
+  </footer>
+
+  <div class="note-box">
+    <b>UI mockup v0.1</b><br/>
+    Static layout only. Panels, colours and labels are placeholders. Waveforms and notes are generated for illustration.
+  </div>
+</div>
+
+<script>
+  // Deterministic pseudo-random so the mockup looks the same on every load
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+  // Ruler: bars 1..12 across the arrange lanes
+  const ruler = document.getElementById("ruler");
+  const bars = 12;
+  for (let i = 0; i < bars; i++) {
+    const s = document.createElement("span");
+    s.style.left = (i * (100 / bars)) + "%";
+    s.textContent = (i + 1);
+    ruler.appendChild(s);
+  }
+
+  // Lanes: clip layout per track (lane index, start %, width %, type, name)
+  const lanes = document.getElementById("lanes");
+  const clips = [
+    { lane: 0, start: 0, w: 38, type: "audio", name: "Vocal take 3" },
+    { lane: 0, start: 40, w: 52, type: "audio", name: "Vocal take 4" },
+    { lane: 1, start: 0, w: 92, type: "midi", name: "Pad chords" },
+    { lane: 2, start: 0, w: 100, type: "audio", name: "Drums 98 BPM" },
+    { lane: 3, start: 12, w: 40, type: "midi", name: "Keys riff" },
+    { lane: 3, start: 60, w: 36, type: "midi", name: "Keys fill" },
+    { lane: 4, start: 0, w: 100, type: "bus", name: "" },
+  ];
+  const trackCount = 5;
+  for (let t = 0; t < trackCount; t++) {
+    const row = document.createElement("div");
+    row.className = "lane";
+    lanes.appendChild(row);
+  }
+  const laneEls = lanes.querySelectorAll(".lane");
+  // Auto lane spacer to line up with header automation row
+  const autoSpacer = document.createElement("div");
+  autoSpacer.className = "auto";
+  lanes.appendChild(autoSpacer);
+
+  clips.forEach(c => {
+    const el = document.createElement("div");
+    el.className = "clip " + (c.type === "audio" ? "audio-clip" : c.type === "midi" ? "midi-clip" : "bus-clip");
+    el.style.left = c.start + "%";
+    el.style.width = c.w + "%";
+    const label = document.createElement("div");
+    label.className = "cname";
+    label.textContent = c.name;
+    el.appendChild(label);
+
+    if (c.type === "audio") {
+      // Waveform as a mirrored path
+      const pts = 160;
+      let top = "", bot = "";
+      for (let i = 0; i <= pts; i++) {
+        const x = (i / pts) * 100;
+        const amp = (0.25 + rnd() * 0.5) * (0.6 + 0.4 * Math.sin(i / 9));
+        top += `${x},${50 - amp * 42} `;
+        bot = `${x},${50 + amp * 42} ` + bot;
+      }
+      el.insertAdjacentHTML("beforeend",
+        `<svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M${top}${bot}Z"/></svg>`);
+    } else if (c.type === "midi") {
+      for (let n = 0; n < 14; n++) {
+        const note = document.createElement("div");
+        note.className = "note";
+        note.style.left = (4 + rnd() * 88) + "%";
+        note.style.width = (4 + rnd() * 14) + "%";
+        note.style.top = (8 + rnd() * 80) + "%";
+        el.appendChild(note);
+      }
+    }
+    laneEls[c.lane].appendChild(el);
+  });
+
+  // Loop region and playhead across lanes
+  laneEls.forEach(l => {
+    const loop = document.createElement("div");
+    loop.className = "loop";
+    loop.style.left = "20%";
+    loop.style.width = "60%";
+    l.appendChild(loop);
+  });
+  laneEls[0].parentElement.style.position = "relative";
+  const playhead = document.createElement("div");
+  playhead.className = "playhead";
+  playhead.style.left = "27%";
+  playhead.style.top = "0";
+  playhead.style.bottom = "0";
+  lanes.appendChild(playhead);
+
+  // Automation curve for the lead vocal volume lane
+  const autoSvg = `<svg viewBox="0 0 100 30" preserveAspectRatio="none">
+    <path d="M0 18 C 15 18, 25 10, 40 12 S 70 22, 100 8" fill="none" stroke="#c9a227" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+  </svg>`;
+  autoSpacer.insertAdjacentHTML("beforeend", autoSvg);
+
+  // Piano roll keys (C5..C3 style) and notes
+  const keys = document.getElementById("keys");
+  for (let i = 0; i < 16; i++) {
+    const k = document.createElement("i");
+    if ([1, 3, 6, 8, 10].includes(i % 12)) k.className = "b";
+    keys.appendChild(k);
+  }
+  const notesEl = document.getElementById("notes");
+  const notes = [
+    [0, 0, 3, 56], [0, 3, 3, 52], [0, 6, 3, 49],
+    [1, 0, 6, 60], [1, 6, 6, 57], [2, 0, 4, 62],
+    [2, 4, 4, 59], [3, 2, 6, 55], [3, 8, 4, 67]
+  ];
+  notes.forEach(([row, start, len, pitch]) => {
+    const n = document.createElement("div");
+    n.className = "n";
+    n.style.top = (row * 14 + 6) + "px";
+    n.style.left = (start * 22) + "px";
+    n.style.width = (len * 22 - 2) + "px";
+    notesEl.appendChild(n);
+  });
+</script>
+</body>
+</html>
